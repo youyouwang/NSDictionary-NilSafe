@@ -53,8 +53,11 @@
     for (NSUInteger i = 0; i < cnt; i++) {
         id key = keys[i];
         id obj = objects[i];
-        if (!key || !obj) {
+        if (!key) {
             continue;
+        }
+        if (!obj) {
+            obj = [NSNull null];
         }
         safeKeys[j] = key;
         safeObjects[j] = obj;
@@ -70,7 +73,7 @@
     for (NSUInteger i = 0; i < cnt; i++) {
         id key = keys[i];
         id obj = objects[i];
-        if (!key || !obj) {
+        if (!key) {
             continue;
         }
         if (!obj) {
@@ -97,15 +100,21 @@
 }
 
 - (void)gl_setObject:(id)anObject forKey:(id<NSCopying>)aKey {
-    if (!aKey || !anObject) {
+    if (!aKey) {
         return;
+    }
+    if (!anObject) {
+        anObject = [NSNull null];
     }
     [self gl_setObject:anObject forKey:aKey];
 }
 
 - (void)gl_setObject:(id)obj forKeyedSubscript:(id<NSCopying>)key {
-    if (!key || !obj) {
+    if (!key) {
         return;
+    }
+    if (!obj) {
+        obj = [NSNull null];
     }
     [self gl_setObject:obj forKeyedSubscript:key];
 }
