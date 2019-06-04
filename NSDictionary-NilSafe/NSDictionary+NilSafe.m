@@ -53,11 +53,8 @@
     for (NSUInteger i = 0; i < cnt; i++) {
         id key = keys[i];
         id obj = objects[i];
-        if (!key) {
+        if (!key || !obj) {
             continue;
-        }
-        if (!obj) {
-            obj = [NSNull null];
         }
         safeKeys[j] = key;
         safeObjects[j] = obj;
@@ -73,11 +70,8 @@
     for (NSUInteger i = 0; i < cnt; i++) {
         id key = keys[i];
         id obj = objects[i];
-        if (!key) {
+        if (!key || !obj) {
             continue;
-        }
-        if (!obj) {
-            obj = [NSNull null];
         }
         safeKeys[j] = key;
         safeObjects[j] = obj;
